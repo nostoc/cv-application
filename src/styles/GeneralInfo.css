@@ -6,17 +6,17 @@
 }
 .InfoCard {
   border: none;
-  border-radius: 22px;
+  border-radius: 20px;
   padding: 16px;
   margin-bottom: 16px;
-  background-color: hsl(0, 1%, 26%);
+  background-color: hsl(0, 0%, 4%);
   gap: 20px;
   text-align: center;
 }
 
 .InfoCard h2 {
   margin-top: 1px;
-  color: hsl(180, 11%, 2%);
+  color: hsl(0, 0%, 100%);
   font-size: 2rem;
 }
 
@@ -25,62 +25,52 @@
   margin: 5px;
   border-radius: 12px;
   border: none;
-  color: hsl(228, 15%, 94%);
+  color: hsl(0, 0%, 0%);
   background-color: hsla(0, 0%, 40%, 0.547);
   text-align: left;
   font-size: 1.2rem;
 }
 
-.editMode {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.editMode label {
-  display: block;
-  margin-bottom: 4px;
-}
-
-.editMode input {
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.viewMode {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
 .submitButton {
   border-radius: 22px;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   margin-top: 5px;
+  padding: 10px;
   background-color: #4caf50;
   color: white;
   border: none;
   cursor: pointer;
+  width: 100px;
+  text-align: center;
 }
 
 .editButton {
   border-radius: 22px;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   margin-top: 5px;
+  padding: 10px;
   background-color: hsl(0, 84%, 65%);
   color: white;
   border: none;
   cursor: pointer;
+  width: 100px;
 }
 
 .viewDetails {
   padding: 8px;
   margin: 5px;
-  border-radius: 12px;
+  border-radius: 20px;
   border: none;
-  color: hsl(228, 15%, 94%);
+  color: #000000;
   background-color: hsla(0, 0%, 40%, 0.547);
   text-align: left;
   font-size: 1.2rem;
+  font-weight: bold;
+}
+p{
+    color: #000000;
+    border: 1px solid;
+}
+img{
+    border-radius: 22px;
 }

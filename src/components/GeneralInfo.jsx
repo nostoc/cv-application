@@ -5,11 +5,21 @@ function GeneralInfo() {
     name: " ",
     email: " ",
     phone: " ",
+    profilePic: null,
   });
+  const [profilePicPreview, setProfilePicPreview] = useState(null);
 
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  }
+
+  function handleFileChange(e) {
+    const file = e.target.files[0];
+    if (file) {
+      setFormData({ ...formData, profilePic: file });
+      setProfilePicPreview(URL.createObjectURL(file));
+    }
   }
 
   function handleSubmit(e) {
@@ -18,7 +28,7 @@ function GeneralInfo() {
   }
   return (
     <div className="InfoCard">
-      <h2>General Information</h2>
+      <h2>Personal Information</h2>
       {editMode ? (
         <form onSubmit={handleSubmit}>
           <div>
@@ -51,14 +61,55 @@ function GeneralInfo() {
               onChange={handleChange}
             />
           </div>
-          <button className="submitButton" type="submit">Submit</button>
+          <div>
+            <lable>Profile Picture :</lable>
+            <input type="file" name="profilePic" onChange={handleFileChange} />
+          </div>
+          {profilePicPreview && (
+            <div>
+              <img
+                src={profilePicPreview}
+                alt="Profile Picture Preview"
+                style={{ width: "100px", height: "100px", objectFit: "cover" }}
+              />
+            </div>
+          )}
+          <button className="submitButton" type="submit">
+            Submit
+          </button>
         </form>
       ) : (
         <div className="viewDetails">
-          <p>Name: {formData.name}</p>
-          <p>Email: {formData.email}</p>
-          <p>Phone: {formData.phone}</p>
-          <button className="editButton" onClick={() => setEditMode(true)}>Edit</button>
+          <p>
+            Name: <br /> {formData.name}
+          </p>
+          <p>
+            Email: <br />
+            {formData.email}
+          </p>
+          <p>
+            Phone: <br />
+            {formData.phone}
+          </p>
+          <p>
+            Profile Picture: <br />{" "}
+            {profilePicPreview && (
+              <div>
+                <img
+                  src={profilePicPreview}
+                  alt="Profile"
+                  style={{
+                    width: "100px",
+                    height: "100px",
+                    objectFit: "cover",
+                  }}
+                />
+              </div>
+            )}
+          </p>
+          <button className="editButton" onClick={() => setEditMode(true)}>
+            Edit
+          </button>
         </div>
       )}
     </div>
